@@ -8,10 +8,12 @@ import { TopbarComponent } from './topbar/topbar.component';
 import { ProductAlertComponent } from './productalert/productalert.component';
 import { Routes, RouterModule } from '@angular/router';
 import { ProductDetailsComponent } from './productdetails/productdetails.component';
+import { CartComponent } from './cart/cart.component';
 
 const approutes : Routes = [
   {path:'' , component:ProductComponent},
-  {path:'productdetails/:productid', component:ProductDetailsComponent}
+  {path:'productdetails/:productid', component:ProductDetailsComponent},
+  {path:'cart',component:CartComponent}
 ]
 
 @NgModule({
@@ -20,7 +22,8 @@ const approutes : Routes = [
     ProductComponent,
     TopbarComponent,
     ProductAlertComponent,
-    ProductDetailsComponent
+    ProductDetailsComponent,
+    CartComponent
   ],
   imports: [
     BrowserModule,
