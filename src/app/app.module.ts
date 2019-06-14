@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { FormsModule} from '@angular/forms';
+import { FormsModule , ReactiveFormsModule} from '@angular/forms';
 
 import { AppComponent } from './app.component';
 import { ProductComponent } from './Products/product.component';
@@ -9,11 +9,14 @@ import { ProductAlertComponent } from './productalert/productalert.component';
 import { Routes, RouterModule } from '@angular/router';
 import { ProductDetailsComponent } from './productdetails/productdetails.component';
 import { CartComponent } from './cart/cart.component';
+import { HttpClientModule } from '@angular/common/http';
+import { ShippingComponent } from './shipping/shipping.component';
 
 const approutes : Routes = [
   {path:'' , component:ProductComponent},
   {path:'productdetails/:productid', component:ProductDetailsComponent},
-  {path:'cart',component:CartComponent}
+  {path:'cart',component:CartComponent},
+  {path:'shipping',component:ShippingComponent}
 ]
 
 @NgModule({
@@ -23,12 +26,15 @@ const approutes : Routes = [
     TopbarComponent,
     ProductAlertComponent,
     ProductDetailsComponent,
-    CartComponent
+    CartComponent,
+    ShippingComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
-    RouterModule.forRoot(approutes)
+    HttpClientModule,
+    RouterModule.forRoot(approutes),
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

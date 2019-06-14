@@ -1,10 +1,13 @@
-<div style="    margin-top: 10px; left: 15px;"> 
+<div class="container">
+<div style="    margin-top: 10px; left: 15px;" class="row"> 
         <button class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored" (click)="clearCart()">
                 Clear cart
         </button>
 </div>
-
-<div >
+<div class="row">
+        <a class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored" routerLink="/shipping" style="top: 20px;"><i class="material-icon">Shipping Details</i></a>
+</div>
+<div class="row">
         <ul class="demo-list-item mdl-list" *ngFor="let prod of items" style="width: 500px;">
                 <li class="mdl-list__item" >
                         <div class="demo-card-wide mdl-card mdl-shadow--2dp"  >
@@ -22,4 +25,21 @@
                 </li>
            
         </ul>
+</div>
+<div style="top:20px;" class="row">
+        <form [formGroup]="formmodel" (ngSubmit)="onSubmitForm(formmodel.value)">
+                <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label" style="top:50px;">
+                  <input class="mdl-textfield__input" type="text" id="sample1" formControlName="name">
+                  <label class="mdl-textfield__label" for="sample1">Name</label>
+                </div>
+                <br />
+                <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label" style="top:80px;">
+                        <input class="mdl-textfield__input" type="text" id="sample1" formControlName="address">
+                        <label class="mdl-textfield__label" for="sample1">Address</label>
+                      </div>
+
+                <button  class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored" type="submit" style="    top: 130px;
+                right: 300px;"><i class="material-icon">Purchase</i></button>
+        </form>
+</div>
 </div>
