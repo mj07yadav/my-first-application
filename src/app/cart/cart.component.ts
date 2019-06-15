@@ -1,7 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { CartService } from '../cart.service';
 import { FormBuilder } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
+import { Subject } from 'rxjs';
 
 @Component({
     selector:'app-cart',
@@ -11,10 +12,12 @@ import { ActivatedRoute, Router } from '@angular/router';
 export class CartComponent implements OnInit{
     items= [];
     formmodel;
-
-    ngOnInit() {
-      
+    firstarray;
+    secondarray;
+   
+    ngOnInit() {  
     }
+
     constructor(private cartService:CartService,private formBuilder:FormBuilder,private route:Router){
         this.items=this.cartService.getItems();
         this.formmodel=this.formBuilder.group({
@@ -32,5 +35,9 @@ export class CartComponent implements OnInit{
         window.alert("Hi "+ formmodeldata.name +" Your Products will be delivered shortly ! at address \n"+formmodeldata.address);
         this.items=this.cartService.clearCart(); 
         this.route.navigate(['/']);
+    }
+    
+    deleteThisItem(i){
+        this.items=this.cartService.deleteThisItem(i);
     }
 }

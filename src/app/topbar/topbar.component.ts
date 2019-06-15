@@ -6,7 +6,18 @@ import { CartService } from '../cart.service';
     templateUrl:'./topbar.component.html',
     styleUrls:['./topbar.component.css']
 })
-export class TopbarComponent {
+export class TopbarComponent implements OnInit {
+    numberOfItemsInCart:number;
+    ngOnInit(): void {
+        this.cartService.numberofitemssubject.subscribe((numberofitems:number) =>{
+            this.numberOfItemsInCart=numberofitems;
+        });   
+    }
+    itemsincart:number;
+
+    constructor(private cartService:CartService){
+       
+    }
     
-    
+
 }

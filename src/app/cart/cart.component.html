@@ -8,19 +8,21 @@
         <a class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored" routerLink="/shipping" style="top: 20px;"><i class="material-icon">Shipping Details</i></a>
 </div>
 <div class="row">
-        <ul class="demo-list-item mdl-list" *ngFor="let prod of items" style="width: 500px;">
-                <li class="mdl-list__item" >
+        <ul class="demo-list-item mdl-list" *ngFor="let prod of items ; index as i" style="width: 500px;">
+                <li class="mdl-list__item">
                         <div class="demo-card-wide mdl-card mdl-shadow--2dp"  >
-                                <div class="mdl-card__title" style="    background: cornflowerblue;">
+                                <div class="mdl-card__title" style="    background: cornflowerblue;" >
                                   <h2 class="mdl-card__title-text">{{prod.name}}</h2>
+                                  <button class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored" style="left:150px"  (click)="deleteThisItem(i)"><i class="material-icon">delete</i></button>
                                 </div>
                                 <div class="mdl-card__actions mdl-card--border" style="text-align: center;
                                 padding-top: 50px;
                                 color: black;
                                 font-size: xx-large;
-                                font-style: italic;">
+                                font-style: italic;" >
                                         {{prod.description}}
                                 </div>
+                                
                               </div>
                 </li>
            
