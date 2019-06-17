@@ -28,6 +28,7 @@ export class CartService{
 
     clearCart(){
         this.items=[];
+        this.numberofitemssubject.next(this.items.length);
         return this.items;
     }
 

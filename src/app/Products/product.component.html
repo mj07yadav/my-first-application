@@ -4,7 +4,7 @@
         <div *ngFor="let prod of productlist; index as productid" style="padding-bottom: 30px;">
                 <li class="mdl-list__item" >
                 <span class="mdl-list__item-primary-content">
-                <i class="material-icons mdl-list__item-icon">grade</i> <a [title]="prod.name + ' details'"  [routerLink]="['/productdetails', productid]" > {{ prod.name }}</a> 
+                <i class="material-icons mdl-list__item-icon">grade</i> <a [title]="prod.product_name + ' details'"  [routerLink]="['/productdetails', productid]" > {{ prod.product_name }}</a> 
                 </span>
                 </li>
                 <p *ngIf="prod.description" 
