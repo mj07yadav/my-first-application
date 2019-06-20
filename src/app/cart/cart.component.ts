@@ -16,23 +16,32 @@ export class CartComponent implements OnInit{
     secondarray;
    
     ngOnInit() {  
+        
     }
 
     constructor(private cartService:CartService,private formBuilder:FormBuilder,private route:Router){
         this.items=this.cartService.getItems();
-        this.formmodel=this.formBuilder.group({
-            name: 'Mritunjay Yadav',
-            address:'A-4 Himgiri Colony , Moradabad ,Uttar Pradesh'
-        });
-    }
 
+        // this.formmodel=this.formBuilder.group({
+        //     name: '',
+        //     address:''
+        // });
+        if(this.items.length===0){
+            console.log(this.items.length+" this for checking tthe logic");
+            if(sessionStorage.getItem("token")===null){
+                this.route.navigate(["/login"]);
+            }else{
+                this.route.navigate(['']);
+            }
+        }
+    }
     clearCart(){
         this.cartService.clearCart();
         this.items=this.cartService.getItems();
     }
 
-    onSubmitForm(formmodeldata){
-        window.alert("Hi "+ formmodeldata.name +" Your Products will be delivered shortly ! at address \n"+formmodeldata.address);
+    onSubmitForm(){
+        window.alert("Hi "+ sessionStorage.getItem("username") +" Your Products will be delivered shortly ! ");
         this.items=this.cartService.clearCart(); 
         this.route.navigate(['/']);
     }

@@ -1,5 +1,54 @@
-<h2>Products List</h2>
-<div >
+<!-- Start Banner Area -->
+<section class="banner-area organic-breadcrumb" style="height: 300px;
+        width: 707%;
+    right: 309px;">
+    <div class="container">
+        <div class="breadcrumb-banner d-flex flex-wrap align-items-center justify-content-end">
+            <div class="col-first">
+                <h1>Products List</h1>
+            </div>
+        </div>
+    </div>
+</section>
+<section class="lattest-product-area pb-40 category-list">
+        <div class="row" *ngFor="let prod of productlist; index as productid">
+            <!-- single product -->
+            <div class="col-lg-4 col-md-6">
+                <div class="single-product" style="width: 500%;">
+                        <a [title]="prod.product_name"  [routerLink]="['/productdetails', productid]" ><img class="img-fluid" src='assets/img/product/p1.jpg' alt=""></a>
+                    <div class="product-details">
+                        <h6><a [title]="prod.product_name"  [routerLink]="['/productdetails', productid]" > {{ prod.product_name }} </a></h6>
+                        <div class="price">
+                            <h6>$ {{ prod.product_price }} </h6> <!--here price should go here -->
+                            <h6 class="l-through">$ 1000</h6>
+                        </div>
+                        <div class="prd-bottom">
+                            <a href="" class="social-info">
+                                <span class="ti-bag"></span>
+                                <p class="hover-text">add to bag</p>
+                            </a>
+                            <a href="" class="social-info">
+                                <span class="lnr lnr-heart"></span>
+                                <p class="hover-text">Wishlist</p>
+                            </a>
+                            <a href="" class="social-info">
+                                <span class="lnr lnr-sync"></span>
+                                <p class="hover-text">compare</p>
+                            </a>
+                            <a href="" class="social-info">
+                                <span class="lnr lnr-move"></span>
+                                <p class="hover-text">view more</p>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    
+<!-- <div >
     <ul class="demo-list-item mdl-list">
         <div *ngFor="let prod of productlist; index as productid" style="padding-bottom: 30px;">
                 <li class="mdl-list__item" >
@@ -19,4 +68,4 @@
             <app-product-alert [product]="prod" (notify)="onNotify()"></app-product-alert>
         </div>
     </ul>
-</div>
+</div> -->

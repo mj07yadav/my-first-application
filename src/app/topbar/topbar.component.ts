@@ -19,5 +19,9 @@ export class TopbarComponent implements OnInit {
        
     }
     
+    logoutMethod(){
+        sessionStorage.removeItem("token");
+        sessionStorage.removeItem("username");
+    }
 
 }
